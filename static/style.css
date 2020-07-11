@@ -1,0 +1,35 @@
+.ui.card {
+	float: left;
+	margin-left: 0.75% !important;
+	margin-top: 50px !important;
+	width: 19% !important;
+	height:350px;
+}
+.ui.menu {
+	background-color: #769182 !important;
+	margin-bottom: 0 !important;
+}
+.thumbnail {
+	width:100% !important;
+	height: 200px !important;
+}
+.card-holder {
+	width: 100%;
+	overflow: hidden;
+	background-color: #afdec4;
+	margin-top:0px !important;
+}
+
+input[type=text] {
+	top: 0;
+	width: 200px;
+	-webkit-transition: all 0.2s ease-in !important;
+	-moz-transition: all 0.2s ease-in !important;
+	-o-transition: all 0.2s ease-in !important;
+	transition: all 0.2s ease-in !important;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+	width: 250px;
+}

@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Flixnet</title>
+
+		<link rel="stylesheet" href="style.css">
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css">
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.js'></script>
+		<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+	</head>
+	<body>
+		<div class="ui inverted menu">
+			<div class="ui dropdown pointing link item">
+				<span id='category' class="text">Top</span>
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					<div id='categoryTop' class="item">Top</div>
+					<div id='categoryHot' class="item">Hot</div>
+					<div id='categoryNew' class="item">New</div>
+				</div>
+			</div>
+			<a id='typeShows' class="ui item">
+				Tv Shows
+			</a>
+			<a id='typeMovies' class="ui item">
+				Movies
+			</a>
+			<div class="right menu">
+				<div class="item">
+					<div class="ui icon input">
+						<input type="text" placeholder="Search...">
+						<i class="search link icon"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id='card-holder' class='card-holder'>
+			<div id='card-template' class="ui card" style='display:none'>
+				<a class="image" href="#">
+					<img class='thumbnail' src="loading-text-v1.png">
+				</a>
+				<div class="content">
+					<a class="header" href="#">Loading...</a>
+					<div class="meta">
+						<a>Loading...</a>
+					</div>
+					<div class="meta">
+						<a>Loading...</a>
+					</div>
+					<div class="meta">
+						<a>Loading...</a>
+					</div>
+					<div class="meta">
+						<a>Loading...</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src='common.js'></script>
+		<script src='page-responsive.js'></script>
+		<script src='main.js'></script>
+	</body>
+</html
