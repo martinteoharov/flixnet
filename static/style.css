@@ -1,9 +1,10 @@
+/* INDEX.HTML */
 .ui.card {
 	float: left;
 	margin-left: 0.75% !important;
 	margin-top: 50px !important;
 	width: 19% !important;
-	height:350px;
+	height:400px;
 }
 .ui.menu {
 	background-color: #769182 !important;
@@ -11,7 +12,7 @@
 }
 .thumbnail {
 	width:100% !important;
-	height: 200px !important;
+	height: 250px !important;
 }
 .card-holder {
 	width: 100%;
@@ -29,7 +30,71 @@ input[type=text] {
 	transition: all 0.2s ease-in !important;
 }
 
-/* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
 	width: 250px;
 }
+/* --- INDEX.HTML --- */
+
+/* SHOW.HTML */
+div.imdb-container {
+	background-color: #333;
+	height: 30%;
+	width: 100%;
+}
+div.imdb-container .imdb-title {
+	height: 60%;	
+	width: 80%;
+	float: left;
+}
+div.imdb-container .imdb-rating {
+	height: 60%;	
+	width: 20%;
+	float: right;
+}
+div.imdb-container .imdb-divider {
+	height: 1px;
+	margin: 1%;
+	width: 98%;
+	float: left;
+	background-color:  #d0d7d9;
+}
+.imdb-vertical-divider {
+	float:left;
+	height: inherit;
+	width: 2px;
+	margin-left:20px;
+	margin-right:20px;
+	background-color:  #d0d7d9;
+}
+div.imdb-container h1.ui.header {
+	color: white;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+div.imdb-container h4.ui.header {
+	color: white;
+	padding-top: 10px;
+	padding-left: 20px;
+}
+
+div.imdb-preview-container {
+	width: 100%;
+	height:315px;
+	background-color: #333;
+}
+div.imdb-preview-container .imdb-poster {
+	width: auto;
+	height: inherit;
+	float: left;
+}
+div.imdb-preview-container .imdb-poster > .poster {
+	width: inherit;
+	height: inherit;
+}
+div.imdb-preview-container .imdb-youtube-trailer {
+	height:inherit;
+	width:40%;
+	float:left;
+}
+/* --- SHOW.HTML ---*/
+

@@ -16,10 +16,17 @@ const bodyParser   = require('body-parser');
 
 app.use(express.static('static'));
 app.use(bodyParser.json());
+app.set('views', __dirname + '/static');
+app.set("view engine","jade")
+
 app.get('/show', (req, res) => {
-	res.sendFile('show.html');	
-});
-app.get('/show/id', (req, res) => {
+	const id = req.query.id;
+	let sql = {id: id};
+	const query = "SELECT * FROM movies WHERE id = $1 LIMIT 1";
+	pool.query(query, [sql.id], (error, resp) => {
+		console.log(resp.rows[0]);
+		res.render('show', { show: resp.rows[0] });
+	});
 
 });
 

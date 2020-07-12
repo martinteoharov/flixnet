@@ -81,11 +81,11 @@ const fillFeed = async(arr) => {
 		clone.style.display = '';
 
 		fetchGetIMDB(card.title).then((res) => {
+			console.log(res);
 			image.src = res.Poster;
-
 		});
 		title.innerText      = card.title;
-		title.href = '/' + card.id;
+		title.href = '/show/?id=' + card.id;
 		imdbGenre.innerText  = 'Genres: ' + (card.genres).join(', ');
 		imdbLength.innerText = 'Length: ' + card.length + 'min';
 		imdbYear.innerText   = 'Released: ' + card.year;
