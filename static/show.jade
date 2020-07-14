@@ -26,10 +26,11 @@ html
         img
       .imdb-vertical-divider
       .imdb-youtube-trailer
-        iframe(width='560', height='315', src='https://www.youtube.com/embed/2JAElThbKrI', frameborder='0', allowfullscreen='')
+        iframe(width='560', height='315', frameborder='0', allowfullscreen='')
       .imdb-vertical-divider
     script(src='js/common.js')
-    script(type='module', src='js/youtube-api.js')
-    script(type='module' src='js/show.js')
+    script(src='https://apis.google.com/js/api.js')
+    script(src='js/youtube-api.js')
+    script(src='js/show.js')
 
 
