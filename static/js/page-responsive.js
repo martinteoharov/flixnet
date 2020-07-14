@@ -85,7 +85,7 @@ const fillFeed = async(arr) => {
 			image.src = res.Poster;
 		});
 		title.innerText      = card.title;
-		title.href = '/show/?id=' + card.id;
+		title.href = '/show?id=' + card.id;
 		imdbGenre.innerText  = 'Genres: ' + (card.genres).join(', ');
 		imdbLength.innerText = 'Length: ' + card.length + 'min';
 		imdbYear.innerText   = 'Released: ' + card.year;
