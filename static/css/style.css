@@ -7,8 +7,18 @@
 	height:400px;
 }
 .ui.menu {
-	background-color: #769182 !important;
+	background-color: #1D1E18 !important;
 	margin-bottom: 0 !important;
+}
+.ui.menu.loading {
+	background-color: black !important;
+	opacity: 1 !important;
+}
+.ui.menu.fixed {
+	opacity: 0.6;
+}
+div.ui.menu.fixed:hover {
+	opacity: 0.8 !important;
 }
 .thumbnail {
 	width:100% !important;
@@ -17,7 +27,7 @@
 .card-holder {
 	width: 100%;
 	overflow: hidden;
-	background-color: #afdec4;
+	background-color: #1D1E18;
 	margin-top:0px !important;
 }
 

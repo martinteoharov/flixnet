@@ -38,8 +38,10 @@ const btnHeaderOnclick = (e) => {
 
 	//TODO: Fetch new shows with the current requirements
 	const reqObj = { 'filters': currentFilters, 'limit': 100 };
+	loadingState(true);
 	fetchPost('searchDB', reqObj).then((res) => {
 		fillFeed(res);
+		loadingState(false);
 	});	
 	e.preventDefault();
 }
@@ -62,6 +64,34 @@ btnCategoryHot.onclick = (e) => {
 btnCategoryNew.onclick = (e) => {
 	btnHeaderOnclick(e);
 }
+
+//SCROLL INTERACTIVE
+const header = document.getElementById('header'); 
+window.onscroll = (ev) => {
+	console.log(window.scrollY);
+	const ts = 200;
+	if(window.scrollY > ts &&  !header.classList.contains('fixed')){
+		header.classList.add('fixed');
+	}
+	else if(window.scrollY < ts && header.classList.contains('fixed')){
+		header.classList.remove('fixed');
+	}
+};
+
+//LOADING STATE
+const loader = document.getElementById('loader');
+console.log(loader);
+const loadingState = (b) => {
+	if(b){
+		header.classList.add('loading');
+		loader.style.display = '';
+	}
+	else {
+		header.classList.remove('loading');
+		loader.style.display = 'none';
+	}
+}
+
 
 
 //UI CARD

@@ -19,11 +19,6 @@ app.use(bodyParser.json());
 app.set('views', __dirname + '/static');
 app.set("view engine","jade")
 
-app.get('/googleapis', (req, res) => {
-	res.sendFile(__dirname + '/node_modules/googleapis');
-
-});
-
 app.get('/show', (req, res) => {
 	const id = req.query.id;
 	let sql = {id: id};
