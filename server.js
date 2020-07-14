@@ -30,7 +30,7 @@ app.get('/show', (req, res) => {
 
 });
 
-app.post('/searchDB', (req, res) => {
+app.post('/searchDB/feed', (req, res) => {
 	//apply category and type filters
 	let filters = req.body.filters,
 		limit = req.body.limit;
@@ -54,6 +54,19 @@ app.post('/searchDB', (req, res) => {
 	});
 
 	//send an array of items with IMDB rating, pretend video source, title, length, genres
+});
+
+app.post('/searchDB/title', (req, res) => {
+	const title = '%' + req.body.title + '%';
+	const limit = req.body.limit;
+	console.log(title);
+
+	const queryObj = {title: title, limit: limit};
+	const query = "SELECT * FROM movies WHERE title LIKE $1 AND votecount > 10000 ORDER BY rating DESC LIMIT $2";
+	pool.query(query, [queryObj.title, queryObj.limit], (error, resp) => {
+		console.log(error, resp.rows);
+		res.json(resp.rows);
+	});
 });
 
 

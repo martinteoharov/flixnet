@@ -1,13 +1,28 @@
+/* VARIABLES */
+:root {
+	--purple-bg-header: #0f090f;
+	--purple-bg-holder: #141014;
+	--purple-bg-content: #4a404a;
+
+	--red-bg-header: #2b080c;
+	--red-bg-holder: #661a22;
+	--red-bg-content: #ab797f;
+}
+
+
 /* INDEX.HTML */
 .ui.card {
 	float: left;
-	margin-left: 0.75% !important;
+	margin-left: 1.75% !important;
 	margin-top: 50px !important;
-	width: 19% !important;
+	width: 17% !important;
 	height:400px;
 }
+.content {
+	background-color: var(--red-bg-content) !important;
+}
 .ui.menu {
-	background-color: #1D1E18 !important;
+	background-color:  var(--red-bg-header) !important;
 	margin-bottom: 0 !important;
 }
 .ui.menu.loading {
@@ -27,7 +42,7 @@ div.ui.menu.fixed:hover {
 .card-holder {
 	width: 100%;
 	overflow: hidden;
-	background-color: #1D1E18;
+	background-color: var(--red-bg-holder);
 	margin-top:0px !important;
 }
 

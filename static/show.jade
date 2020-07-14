@@ -15,7 +15,7 @@ html
         h1#title.ui.header #{show.title}
         .imdb-divider
         div
-          h4.ui.header  15 | #{show.length} min | #{show.genres} | TV Series (#{show.year}– )
+          h4.ui.header  #{show.length} min | #{show.genres} | TV Series (#{show.year})
       .imdb-rating
         h1.ui.header
           i.fa.fa-star(style='font-size:40px;color:yellow')
@@ -28,7 +28,7 @@ html
       .imdb-youtube-trailer
         iframe(width='560', height='315', frameborder='0', allowfullscreen='')
       .imdb-vertical-divider
-    script(src='js/common.js')
+    script(src='js/imdb-api.js')
     script(src='https://apis.google.com/js/api.js')
     script(src='js/youtube-api.js')
     script(src='js/show.js')

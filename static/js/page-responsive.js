@@ -5,8 +5,10 @@ $('.ui.dropdown')
 $(document).ready(() => {
 	generateCards(50);
 	const reqObj = { 'filters': currentFilters, 'limit': 50 };
-	fetchPost('searchDB', reqObj).then((res) => {
+	loadingState(true);
+	fetchPost('searchDB/feed', reqObj).then((res) => {
 		fillFeed(res);
+		loadingState(false);
 	});	
 });
 
@@ -14,7 +16,7 @@ $(document).ready(() => {
 let currentFilters = {category: "categoryHot", type: "typeAll"};
 const btnTypeShows  = document.getElementById('typeShows');
 const btnTypeMovies = document.getElementById('typeMovies');
-const headerToggleActive = [btnTypeShows, btnTypeMovies];
+const divHeaderToggleActive = [btnTypeShows, btnTypeMovies];
 
 const btnCategoryTop = document.getElementById('categoryTop');
 const btnCategoryHot = document.getElementById('categoryHot');
@@ -27,7 +29,7 @@ const btnHeaderOnclick = (e) => {
 		currentFilters.type = id;
 
 
-		for(const el of headerToggleActive)
+		for(const el of divHeaderToggleActive)
 			if(el.id != id && el.classList.contains('active'))	
 				el.classList.remove('active');
 	}
@@ -39,7 +41,7 @@ const btnHeaderOnclick = (e) => {
 	//TODO: Fetch new shows with the current requirements
 	const reqObj = { 'filters': currentFilters, 'limit': 100 };
 	loadingState(true);
-	fetchPost('searchDB', reqObj).then((res) => {
+	fetchPost('searchDB/feed', reqObj).then((res) => {
 		fillFeed(res);
 		loadingState(false);
 	});	
@@ -66,29 +68,28 @@ btnCategoryNew.onclick = (e) => {
 }
 
 //SCROLL INTERACTIVE
-const header = document.getElementById('header'); 
+const divHeader = document.getElementById('header'); 
 window.onscroll = (ev) => {
-	console.log(window.scrollY);
+	//console.log(window.scrollY);
 	const ts = 200;
-	if(window.scrollY > ts &&  !header.classList.contains('fixed')){
-		header.classList.add('fixed');
-	}
-	else if(window.scrollY < ts && header.classList.contains('fixed')){
-		header.classList.remove('fixed');
-	}
+	if(window.scrollY > ts &&  !divHeader.classList.contains('fixed'))
+		divHeader.classList.add('fixed');
+	else if(window.scrollY < ts && divHeader.classList.contains('fixed'))
+		divHeader.classList.remove('fixed');
+
 };
 
 //LOADING STATE
-const loader = document.getElementById('loader');
-console.log(loader);
+const imgLoader = document.getElementById('loader');
+console.log(imgLoader);
 const loadingState = (b) => {
 	if(b){
-		header.classList.add('loading');
-		loader.style.display = '';
+		divHeader.classList.add('loading');
+		imgLoader.style.display = '';
 	}
 	else {
-		header.classList.remove('loading');
-		loader.style.display = 'none';
+		divHeader.classList.remove('loading');
+		imgLoader.style.display = 'none';
 	}
 }
 
@@ -96,12 +97,12 @@ const loadingState = (b) => {
 
 //UI CARD
 const divCardHolder = document.getElementById('card-holder');
-const cardTemplate  = document.getElementById('card-template');
+const divCardTemplate  = document.getElementById('card-template');
 
 const fillFeed = async(arr) => {
 	divCardHolder.innerHTML = '';
 	for(card of arr){
-		const clone      = cardTemplate.cloneNode(true);
+		const clone      = divCardTemplate.cloneNode(true);
 		const image      = clone.childNodes[1].childNodes[1];
 		const title      = clone.childNodes[3].childNodes[1];
 		const imdbGenre  = clone.childNodes[3].childNodes[3].childNodes[1];
@@ -111,7 +112,6 @@ const fillFeed = async(arr) => {
 		clone.style.display = '';
 
 		fetchGetIMDB(card.title).then((res) => {
-			console.log(res);
 			image.src = res.Poster;
 		});
 		title.innerText      = card.title;
@@ -125,38 +125,25 @@ const fillFeed = async(arr) => {
 	}
 }
 
+//SEARCH BAR
+const inpSearch = document.getElementById('search');
+inpSearch.onchange = () => {
+	const url = 'searchDB/title';
+	const obj = {title: inpSearch.value, limit: 10};
+	loadingState(true);
+	fetchPost(url, obj).then((res) => {
+		//fill feed sequence
+		fillFeed(res);
+		loadingState(false);
+	});
+}
 
 
 const generateCards = (c) => {
 	for(let i = 0; i < c; i ++ ){
-		const clone = cardTemplate.cloneNode(true);
+		const clone = divCardTemplate.cloneNode(true);
 		clone.style.display = '';
 		divCardHolder.append(clone);
 	}
 }
-
-//generateCards(20);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
