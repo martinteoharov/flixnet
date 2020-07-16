@@ -1,3 +1,8 @@
 {
-	"ignore": ["static/*"]
+  "verbose": true,
+  "ignore": ["static/*"],
+  "execMap": {
+    "rb": "ruby",
+    "pde": "processing --sketch={{pwd}} --run"
+  }
 }

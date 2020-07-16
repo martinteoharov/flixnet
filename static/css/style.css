@@ -13,10 +13,10 @@
 /* INDEX.HTML */
 .ui.card {
 	float: left;
-	margin-left: 1.75% !important;
+	margin-left: 2.5% !important;
 	margin-top: 50px !important;
 	width: 17% !important;
-	height:400px;
+	height:540px;
 }
 .content {
 	background-color: var(--red-bg-content) !important;
@@ -37,7 +37,7 @@ div.ui.menu.fixed:hover {
 }
 .thumbnail {
 	width:100% !important;
-	height: 250px !important;
+	height: 350px !important;
 }
 .card-holder {
 	width: 100%;
