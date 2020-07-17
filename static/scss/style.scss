@@ -1,0 +1,183 @@
+/* VARIABLES */
+/* --- NEON RED PRESET --- */
+$neon-red-header-color: #3E0000;
+$neon-red-holder-color: #970808;
+$neon-red-card-color  : #690000;
+
+/* --- GRAY DARKSET PRESET --- */
+$gray-darkset-header-color: #272222;
+$gray-darkset-holder-color: #402B2B;
+$gray-darkset-card-color  : #584343;
+
+/* --- PALE PRESET --- */
+$pale-header-color: #722929;
+$pale-holder-color: #AD6B6B;
+$pale-card-color  : #D09898;
+
+/* --- TEXT COLORS --- */
+$pale-text-color  : #722929;
+$text-color  : #ccbed4;
+
+$header-color: $pale-header-color;
+$holder-color: $pale-holder-color;
+$card-color  : $pale-card-color;
+
+$breakpoint-720p: 1300px;
+$breakpoint-1080p: 1900px;
+
+/* INDEX.HTML */
+.ui {
+	&.card {
+		float: left;
+		margin-left: 2.5% !important;
+		margin-top: 50px !important;
+		width: 17% !important;
+		height:540px;
+
+		.content {
+			color: $pale-text-color !important;
+			a {
+				color: inherit !important;
+			}
+			.meta {
+				color: inherit !important;
+				a {
+					color: inherit !important;
+				}
+			}
+		}
+	}
+	&.menu {
+		background-color:  $header-color !important;
+		margin-bottom: 0 !important;
+
+		&.fixed:hover {
+			opacity: 0.8 !important;
+		}
+		&.loading {
+			background-color: black !important;
+			opacity: 1 !important;
+		}
+		&.fixed {
+			opacity: 0.6;
+		}
+	}
+}
+.content {
+	background-color: $card-color !important;
+}
+.thumbnail {
+	width:100% !important;
+	height: 400px !important;
+}
+.card-holder {
+	width: 100%;
+	overflow: hidden;
+	background-color: $holder-color;
+	margin-top:0px !important;
+}
+
+input[type=text] {
+	top: 0;
+	width: 200px;
+	-webkit-transition: all 0.2s ease-in !important;
+	-moz-transition: all 0.2s ease-in !important;
+	-o-transition: all 0.2s ease-in !important;
+	transition: all 0.2s ease-in !important;
+}
+
+input[type=text]:focus {
+	width: 250px;
+}
+/* --- INDEX.HTML --- */
+
+/* SHOW.HTML */
+div.imdb-container {
+	background-color: #333;
+	height: 30%;
+	width: 100%;
+
+	.imdb-title {
+		height: 60%;	
+		width: 80%;
+		float: left;
+	}
+	.imdb-rating {
+		height: 60%;	
+		width: 20%;
+		float: right;
+	}
+	.imdb-divider {
+		height: 1px;
+		margin: 1%;
+		width: 98%;
+		float: left;
+		background-color:  #d0d7d9;
+	}
+	h1.ui.header {
+		color: white;
+		padding-top: 20px;
+		padding-left: 20px;
+	}
+	h4.ui.header {
+		color: white;
+		padding-top: 10px;
+		padding-left: 20px;
+	}
+}
+
+div.imdb-preview-container {
+	width: 100%;
+	height:330px;
+	background-color: #333;
+
+	.imdb-poster {
+		width: auto;
+		height: 315px;
+		float: left;
+		margin-left: 20px;
+	}
+	.imdb-poster > .poster {
+		width: inherit;
+		height: inherit;
+	}
+	.imdb-youtube-trailer {
+		height:inherit;
+		width:560px;
+		float:left;
+	}
+}
+
+.imdb-vertical-divider {
+	float:left;
+	height: inherit;
+	width: 2px;
+	margin-left:20px;
+	margin-right:20px;
+	background-color:  #d0d7d9;
+}
+/* --- SHOW.HTML ---*/
+
+/* --- MEDIA ---*/
+@media (min-width: $breakpoint-720p) {
+	.ui.card {
+		height: 440px !important;
+	}
+	.thumbnail {
+		height: 280px !important;
+	}
+
+}
+@media (min-width: $breakpoint-1080p) {
+	.ui.card {
+		height: 450px !important;
+		width: 14% !important;
+		margin-left: 2.5% !important;
+
+		.thumbnail {
+			height: 300px !important;
+		}
+
+	}
+}
+/* --- MEDIA ---*/
